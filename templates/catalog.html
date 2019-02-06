@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+    <script src="../static/js/main.js"></script>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="{{url_for('showCategories')}}">Home</a>
+        <a href="{{url_for('login')}}">Log In</a>
+    </div>
+    <div class="main-catalog">
+        <div class="category-list" style="float:left;">
+            <h2 class="list-name">Categories</h2>
+            <a href="{{url_for('newCategory')}}">Create New Category</a>
+            {% for cat in categories %}
+            <div class="category-row">
+                <a href="{{url_for('showItems', category_id=cat.id)}}" class="category">
+                    <h3>{{cat.name}}</h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="item-list" style="float:right;">
+            <h2 class="list-name">{{name}} items</h2>
+            {% if newItems %}
+            <a href="{{url_for('newItem', category_id=category_id)}}">New Item</a>
+            {% endif %}
+            {% for item in items %}
+            <div class="item-row">
+                <a href='{{url_for('showItem', category_id=item.category_id, item_id=item.id)}}' class="item">
+                    <h3>{{item.name}}</h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>  
+    </div>
+</body>
+</html>

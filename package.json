@@ -1,0 +1,14 @@
+{
+  "name": "catalog",
+  "version": "1.0.0",
+  "description": "item catalog with databases",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o static/css/ --recursive"
+  },
+  "author": "Ruslan Temirkhanov",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
