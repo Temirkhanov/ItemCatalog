@@ -1,0 +1,140 @@
+.topnav {
+  margin: 0;
+  padding: 0;
+  background: #333;
+  overflow: hidden; }
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-size: 1rem; }
+  .topnav a:hover {
+    background-color: #c2bdbd;
+    color: black; }
+
+body {
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #abc4eb 50%, #8da0c0 50%);
+  font-family: Arial, Helvetica, sans-serif; }
+
+* {
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem; }
+
+.list {
+  text-align: center;
+  width: 50%;
+  display: grid; }
+  .list a:hover {
+    background-color: #333;
+    color: white; }
+  .list .create-link {
+    padding: 1rem; }
+  .list .create-link:hover {
+    background-color: lightcoral;
+    font-size: 1.3rem; }
+
+#category {
+  float: left; }
+
+#item {
+  float: right; }
+
+.list-name {
+  padding: 0.3rem;
+  color: black;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  text-decoration: underline; }
+
+.container {
+  position: relative;
+  border-radius: 5px;
+  padding: 20px 0 30px 0; }
+
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; }
+
+input:hover,
+.btn:hover {
+  opacity: 1; }
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3b5998;
+  color: white; }
+
+.twitter {
+  background-color: #55acee;
+  color: white; }
+
+.google {
+  background-color: #dd4b39;
+  color: white; }
+
+/* style the submit button */
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer; }
+
+input[type="submit"]:hover {
+  background-color: #45a049; }
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px; }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px; }
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px; }
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none; }
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px; }
