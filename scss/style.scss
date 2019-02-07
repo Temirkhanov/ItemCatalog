@@ -1,7 +1,4 @@
-$color1: #8a6df3;
-$color2: #abc4eb;
-$color3: #8da0c0;
-$color-nav: #333;
+$color-nav: rgba(75, 66, 66, 0.548);
 
 .topnav {
   a {
@@ -27,34 +24,105 @@ $color-nav: #333;
 body {
   margin: 0;
   height: 100%;
-  background: linear-gradient(90deg, $color2 50%, $color3 50%);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("img/bg.jpg");
+  background-size: 100%;
+}
+
+.bg-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.538);
+  background-size: 100%;
 }
 
 * {
   box-sizing: border-box;
 }
 
-a {
+.category {
   text-decoration: none;
-  color: $color-nav;
   font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+
+  .name {
+    text-decoration: none;
+    color: rgb(12, 12, 12);
+    padding: 0.5rem;
+    float: left;
+    position: relative;
+    width: 50%;
+    background: rgba(187, 187, 187, 0.418);
+  }
+
+  .edit,
+  .delete {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    float: left;
+    position: relative;
+    width: 15%;
+  }
+
+  .edit {
+    background: rgba(255, 217, 0, 0.247);
+  }
+
+  .delete {
+    background: rgba(255, 67, 67, 0.288);
+  }
+}
+
+.main-catalog {
+  position: relative;
+  margin-left: 15%;
+  height: 100%;
+  width: 70%;
 }
 
 .list {
-  text-align: center;
   width: 50%;
+  height: 12%;
+  text-align: center;
   display: grid;
+  grid-gap: 10%;
   a:hover {
-    background-color: #333;
+    background-color: rgba(80, 77, 77, 0.377);
     color: white;
   }
-  .create-link {
-    padding: 1rem;
+  .edit:hover {
+    color: gold;
   }
+  .delete:hover {
+    color: red;
+  }
+
+  .create-link {
+    text-decoration: none;
+    color: black;
+    width: 80%;
+    height: 100%;
+    align-self: center;
+    padding: 0.7rem;
+    background: rgba(100, 255, 113, 0.295);
+  }
+
   .create-link:hover {
-    background-color: lightcoral;
-    font-size: 1.3rem;
+    background-color: rgb(122, 122, 122);
   }
 }
 
@@ -67,20 +135,27 @@ a {
 }
 
 .list-name {
-  padding: 0.3rem;
-  color: black;
+  padding: 1rem;
+  color: rgb(31, 29, 29);
+  width: 80%;
+  height: 100%;
+  float: left;
+  font-size: 1.7rem;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  text-decoration: underline;
 }
 
+/*
+---------------=-====  COPIED +++
+*/
 .container {
   position: relative;
-  border-radius: 5px;
-  padding: 20px 0 30px 0;
+  border-radius: 5rem;
+  padding: 5rem 10rem 10rem 10rem;
 }
 
 input,
-.btn {
+.btn,
+textarea {
   width: 100%;
   padding: 12px;
   border: none;
@@ -99,7 +174,12 @@ input:hover,
 }
 
 /* add appropriate colors to fb, twitter and google buttons */
-.fb {
+.signup {
+  text-align: center;
+  float: right;
+  padding: 0.5rem;
+  width: 23%;
+  height: 50%;
   background-color: #3b5998;
   color: white;
 }
@@ -109,9 +189,8 @@ input:hover,
   color: white;
 }
 
-.google {
-  background-color: #dd4b39;
-  color: white;
+.signinButton {
+  float: right;
 }
 
 /* style the submit button */
@@ -171,4 +250,56 @@ input[type="submit"]:hover {
   text-align: center;
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
+}
+
+.edit-header {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 1%;
+  padding-left: 20%;
+  align-content: center;
+  input {
+    width: 60%;
+    border: 0.1rem solid grey;
+  }
+}
+
+.edit-btn {
+  width: 10%;
+  padding: 1%;
+}
+
+.custom-col {
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.descr {
+  padding: 1%;
+  width: 80%;
+  padding-left: 23%;
+  .descr-txt {
+    padding: 2%;
+    text-align: center;
+    background: rgba(167, 167, 167, 0.267);
+  }
+}
+
+.custom-edit {
+  padding: 1%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  float: right;
+  background: rgba(255, 255, 255, 0.692);
+  text-decoration: none;
+  color: black;
+}
+
+.login-header {
+  float: right;
 }

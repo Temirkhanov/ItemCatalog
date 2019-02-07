@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='style.css')}}"
+    />
     <script src="../static/js/main.js"></script>
-</head>
-<body>
-    <div class="topnav">
-        <a href="{{url_for('showCategories')}}">Home</a>
-        <a href="{{url_for('login')}}">Log In</a>
-    </div>
-    <div class="main-catalog">
-        <div class="list" id="category">
-            <h2 class="list-name">Categories</h2>
-            {% for cat in categories %}
-            <a href="{{url_for('showItems', category_id=cat.id)}}" class="category">
-                <div class="category-row">
-                    <h3>{{cat.name}}</h3>
-                </div>
-            </a>
-            {% endfor %}
-            <a class="create-link" href="{{url_for('newCategory')}}">
-                <div>Create New Category</div>
-            </a>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="bg-color">
+        <div class="topnav">
+          <a href="{{ url_for('showCategories') }}">Home</a>
+          <a href="{{ url_for('login') }}">Log In</a>
         </div>
-        
 
-        <div class="list" id="item">
-            <h2 class="list-name">{{name}} Items</h2>
-            
-            {% for item in items %}
-            
-                <a href='{{url_for('showItem', category_id=item.category_id, item_id=item.id)}}' class="item">
-                        <div class="item-row">
-                    <h3>{{item.name}}</h3>
-                </div>
-                </a>
-            
+        <div class="main-catalog">
+          <div class="list" id="category">
+            <div class="list-name cat">Categories</div>
+
+            {% for cat in categories %}
+            <div class="category">
+              <a
+                href="{{url_for('showItems', category_id=cat.id)}}"
+                class="name"
+              >
+                <span id="item-name">{{ cat.name }}</span>
+              </a>
+              <a
+                href="{{url_for('editCategory', category_id=cat.id)}}"
+                class="edit left"
+              >
+                <span id="item-name">Edit</span>
+              </a>
+              <a href="#" class="delete">
+                <span id="item-name">Delete</span>
+              </a>
+            </div>
             {% endfor %}
-            {% if newItems %}
-            <a class="create-link" href="{{url_for('newItem', category_id=category_id)}}">
-                    <div>Create New Item</div>
+            <a class="create-link" href="{{ url_for('newCategory') }}">
+              <div>Create New Category</div>
             </a>
-        {% endif %}
-        </div>  
-        
+          </div>
 
-        
+          <div class="list" id="item">
+            <div class="list-name item">{{ name }} Items</div>
+
+            {% for item in items %}
+            <div class="category">
+              <a
+                href="{{url_for('showItem', category_id=item.category_id,item_id=item.id)}}"
+                class="name"
+              >
+                <span id="item-name">{{ item.name }}</span>
+              </a>
+              <a href="#" class="edit">
+                <span id="item-name">Edit</span>
+              </a>
+              <a href="#" class="delete">
+                <span id="item-name">Delete</span>
+              </a>
+            </div>
+            {% endfor %} {% if newItems %}
+            <a
+              class="create-link"
+              href="{{url_for('newItem', category_id=category_id)}}"
+            >
+              <div>Create New Item</div>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

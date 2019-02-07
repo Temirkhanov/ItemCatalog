@@ -13,28 +13,36 @@
     <script src="../static/js/main.js"></script>
   </head>
   <body>
-    <div class="topnav">
-      <a href="{{ url_for('showCategories') }}">Home</a>
-      <a href="{{ url_for('login') }}">Log In</a>
-    </div>
-    <h2>Edit {{ item.name }}</h2>
-    <form action="" method="POST">
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        maxlength="100"
-        name="name"
-        placeholder="{{ item.name }}"
-      />
+    <div class="bg">
+      <div class="bg-color">
+        <div class="topnav">
+          <a href="{{ url_for('showCategories') }}">Home</a>
+          <a href="{{ url_for('login') }}">Log In</a>
+        </div>
+        <div class="edit-header">
+            <h2>Edit {{ item.name }} </h2>
+          </div>
+        <form action="" method="POST">
+            <div class="col custom-col">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            maxlength="100"
+            name="name"
+            placeholder="{{ item.name }}"
+          />
 
-      <label for="description">Description:</label>
-      <textarea
-        maxlength="250"
-        rows="3"
-        name="description"
-        placeholder="{{ item.description }}"
-      ></textarea>
-      <button type="submit">Edit</button>
-    </form>
+          <label for="description">Description:</label>
+          <textarea
+            maxlength="250"
+            rows="3"
+            name="description"
+            placeholder="{{ item.description }}"
+          ></textarea>
+          <button type="submit" class="edit-btn">Edit</button>
+          </form>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

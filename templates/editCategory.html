@@ -13,23 +13,29 @@
     <script src="../static/js/main.js"></script>
   </head>
   <body>
-    <div class="topnav">
-      <a href="{{ url_for('showCategories') }}">Home</a>
-      <a href="{{ url_for('login') }}">Log In</a>
-    </div>
-    <div>
-      <h2>Edit {{ category.name }}</h2>
-    </div>
+    <div class="bg">
+      <div class="bg-color">
+        <div class="topnav">
+          <a href="{{ url_for('showCategories') }}">Home</a>
+          <a href="{{ url_for('login') }}">Log In</a>
+        </div>
+        <div class="edit-header">
+          <h2>Edit {{ category.name }}</h2>
+        </div>
 
-    <form action="" method="POST">
-      <label for="name">New Name:</label>
-      <input
-        type="text"
-        name="name"
-        placeholder="{{ category.name }}"
-        required
-      />
-      <button type="submit" type="submit">Rename</button>
-    </form>
+        <form action="" method="POST">
+          <div class="edit-input">
+            <label for="name">New Name:</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="{{ category.name }}"
+              required
+            />
+            <button class="edit-btn" type="submit" type="submit">Rename</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
