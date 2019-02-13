@@ -42,26 +42,32 @@ body {
 
 .category {
   text-decoration: none;
-  font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
   height: 100%;
   width: 100%; }
   .category .name {
     text-decoration: none;
     color: #0c0c0c;
-    padding: 0.5rem;
+    padding: 0.4rem;
     float: left;
     position: relative;
-    width: 50%;
+    width: 72%;
     background: rgba(187, 187, 187, 0.418); }
   .category .edit,
-  .category .delete {
+  .category .delete,
+  .category .disabled {
     color: white;
     text-decoration: none;
-    padding: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.55rem;
     float: left;
     position: relative;
-    width: 15%; }
+    width: 14%; }
+  .category .disabled {
+    background: rgba(148, 148, 148, 0.774);
+    text-decoration: line-through;
+    text-decoration-color: red; }
   .category .edit {
     background: rgba(255, 217, 0, 0.247); }
   .category .delete {
@@ -78,7 +84,7 @@ body {
   height: 12%;
   text-align: center;
   display: grid;
-  grid-gap: 10%; }
+  grid-gap: 2%; }
   .list a:hover {
     background-color: rgba(80, 77, 77, 0.377);
     color: white; }
@@ -89,9 +95,8 @@ body {
   .list .create-link {
     text-decoration: none;
     color: black;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    align-self: center;
     padding: 0.7rem;
     background: rgba(100, 255, 113, 0.295); }
   .list .create-link:hover {
@@ -138,23 +143,6 @@ input:hover,
 .btn:hover {
   opacity: 1; }
 
-/* add appropriate colors to fb, twitter and google buttons */
-.signup {
-  text-align: center;
-  float: right;
-  padding: 0.5rem;
-  width: 23%;
-  height: 50%;
-  background-color: #3b5998;
-  color: white; }
-
-.twitter {
-  background-color: #55acee;
-  color: white; }
-
-.signinButton {
-  float: right; }
-
 /* style the submit button */
 input[type="submit"] {
   background-color: #4caf50;
@@ -163,48 +151,6 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45a049; }
-
-/* Two-column layout */
-.col {
-  float: left;
-  width: 50%;
-  margin: auto;
-  padding: 0 50px;
-  margin-top: 6px; }
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-/* vertical line */
-.vl {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  border: 2px solid #ddd;
-  height: 175px; }
-
-/* text inside the vertical line */
-.vl-innertext {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  padding: 8px 10px; }
-
-/* hide some text on medium and large screens */
-.hide-md-lg {
-  display: none; }
-
-/* bottom container */
-.bottom-container {
-  text-align: center;
-  background-color: #666;
-  border-radius: 0px 0px 4px 4px; }
 
 .edit-header {
   text-align: center;
@@ -242,9 +188,16 @@ input[type="submit"]:hover {
   padding-left: 1.5%;
   padding-right: 1.5%;
   float: right;
-  background: rgba(255, 255, 255, 0.692);
   text-decoration: none;
-  color: black; }
+  color: black;
+  border: 0.1rem solid black; }
+
+.custom-edit:hover {
+  border: 0.1rem solid lightgreen; }
 
 .login-header {
   float: right; }
+
+.deletion {
+  padding: 1%;
+  padding-left: 3%; }

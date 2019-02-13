@@ -19,102 +19,74 @@
         <div class="topnav">
           <a href="{{ url_for('showCategories') }}">Home</a>
           <a href="{{ url_for('login') }}">Log In</a>
+          {%if userID:%}
+          <a href="{{ url_for('gdisconnect') }}">Log Out</a>
+          {%endif%}
         </div>
 
         <div class="container">
           <form action="#" method="POST">
-            <div class="row">
-              <div class="vl">
-                <span class="vl-innertext">or</span>
-              </div>
-
-              <div class="col">
-                <h3 class="login-header">
-                  Social Media Sign-Up/Sign-In
-                </h3>
-                <a href="#" class="twitter btn">
-                  <i class="fa fa-twitter fa-fw"></i> facebook
-                </a>
-                <!---
-            **************************************
-            **
-            ************************************
-            -->
-                <div class="signinButton">
-                  <span
-                    class="g-signin"
-                    data-scope="openid email"
-                    data-clientid="348952675510-k08vtf1gkjn7lm0bd4qkp7bqquddj98v.apps.googleusercontent.com"
-                    data-redirecturi="postmessage"
-                    data-accesstype="offline"
-                    data-cookiepolicy="single_host_origin"
-                    data-callback="signInCallback"
-                    data-approvalprompt="force"
-                  >
-                  </span>
-                </div>
-
-                <div id="result"></div>
-                <script>
-                  function signInCallback(authResult) {
-                    if (authResult["code"]) {
-                      // Hide the sign-in button now that the user is authorized
-                      $("#signinButton").attr("style", "display: none");
-                      // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
-                      $.ajax({
-                        type: "POST",
-                        url: "/gconnect?state={{STATE}}",
-                        processData: false,
-                        data: authResult["code"],
-                        contentType: "application/octet-stream; charset=utf-8",
-                        success: function(result) {
-                          // Handle or verify the server response if necessary.
-                          if (result) {
-                            $("#result").html(
-                              "Login Successful!</br>" +
-                                result +
-                                "</br>Redirecting..."
-                            );
-                            setTimeout(function() {
-                              window.location.href = "/category";
-                            }, 4000);
-                          } else if (authResult["error"]) {
-                            console.log(
-                              "There was an error: " + authResult["error"]
-                            );
-                          } else {
-                            $("#result").html(
-                              "Failed to make a server-side call. Check your configuration and console."
-                            );
-                          }
-                        }
-                      });
-                    }
-                  }
-                </script>
-
-                <!---
-            **************************************
-            **
-            ************************************
-            -->
-              </div>
-
-              <div class="col">
-                <div class="hide-md-lg">
-                  <p>Or sign in manually:</p>
-                </div>
-
-                <input type="text" name="email" placeholder="Email" required />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                />
-                <input type="submit" value="Login" />
-              </div>
+            <div class="signinButton">
+              <span
+                class="g-signin"
+                data-scope="openid email"
+                data-clientid="348952675510-k08vtf1gkjn7lm0bd4qkp7bqquddj98v.apps.googleusercontent.com"
+                data-redirecturi="postmessage"
+                data-accesstype="offline"
+                data-cookiepolicy="single_host_origin"
+                data-callback="signInCallback"
+                data-approvalprompt="force"
+              >
+              </span>
             </div>
+
+            <div id="result"></div>
+            <script>
+              function signInCallback(authResult) {
+                if (authResult["code"]) {
+                  // Hide the sign-in button now that the user is authorized
+                  $("#signinButton").attr("style", "display: none");
+                  // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
+                  $.ajax({
+                    type: "POST",
+                    url: "/gconnect?state={{STATE}}",
+                    processData: false,
+                    data: authResult["code"],
+                    contentType: "application/octet-stream; charset=utf-8",
+                    success: function(result) {
+                      // Handle or verify the server response if necessary.
+                      if (result) {
+                        $("#result").html(
+                          "Login Successful!</br>" +
+                            result +
+                            "</br>Redirecting..."
+                        );
+                        setTimeout(function() {
+                          window.location.href = "/category";
+                        }, 2000);
+                      } else if (authResult["error"]) {
+                        console.log(
+                          "There was an error: " + authResult["error"]
+                        );
+                      } else {
+                        $("#result").html(
+                          "Failed to make a server-side call. Check your configuration and console."
+                        );
+                      }
+                    },
+                    error: function(result) {
+                      console.log("There was an error: " + result);
+                    }
+                  });
+                }
+              }
+            </script>
+
+            <!---
+            **************************************
+            **
+            ************************************
+            -->
           </form>
         </div>
       </div>

@@ -18,6 +18,9 @@
         <div class="topnav">
           <a href="{{ url_for('showCategories') }}">Home</a>
           <a href="{{ url_for('login') }}">Log In</a>
+          {%if userID:%}
+          <a href="{{ url_for('gdisconnect') }}">Log Out</a>
+          {%endif%}
         </div>
         <div class="edit-header">
           <h2>New Item For {{ catName }} Category.</h2>

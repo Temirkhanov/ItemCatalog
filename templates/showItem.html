@@ -6,7 +6,6 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}" />
-    <script src="../static/js/main.js"></script>
 </head>
 <body>
         <div class="bg">
@@ -14,14 +13,19 @@
     <div class="topnav">
         <a href="{{url_for('showCategories')}}">Home</a>
         <a href="{{url_for('login')}}">Log In</a>
+        {%if userID:%}
+          <a href="{{ url_for('gdisconnect') }}">Log Out</a>
+          {%endif%}
     </div>
     <div class="edit-header">
             <h2>{{ item.name }}</h2>
           </div>
     <div class="descr">
             <p class="descr-txt">{{item.description}}</p>
-    <a href='{{url_for('editItem', category_id=category_id, item_id=item.id)}}' class="custom-edit">Edit</a>
-
+            {%if access==True:%}
+    <a href='{{url_for('editItem', category_id=category_id, item_id=item.id)}}' class="custom-edit" style="background: rgba(255, 217, 0, 0.247)">Edit</a>
+    <a href='' class="custom-edit" style="background: rgba(255, 67, 67, 0.288)">Delete</a>
+{%endif%}
     </div>
 </div></div>
 </body>

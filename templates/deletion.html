@@ -10,7 +10,6 @@
       type="text/css"
       href="{{url_for('static', filename='style.css')}}"
     />
-    <script src="../static/js/main.js"></script>
   </head>
   <body>
     <div class="bg">
@@ -22,22 +21,13 @@
           <a href="{{ url_for('gdisconnect') }}">Log Out</a>
           {%endif%}
         </div>
-        <div class="edit-header">
-          <h2>Edit {{ category.name }}</h2>
-        </div>
+        <div class="deletion">
+          <h2>Delete {{ deleteObj.name }} ?</h2>
 
-        <form action="" method="POST">
-          <div class="edit-input">
-            <label for="name">New Name:</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="{{ category.name }}"
-              required
-            />
-            <button class="edit-btn" type="submit" type="submit">Rename</button>
-          </div>
-        </form>
+          <form action="" method="POST">
+            <button class="edit-btn" type="submit" type="submit">Delete</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>

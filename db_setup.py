@@ -5,15 +5,15 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+
 class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False)
-    password = Column(String(25), nullable=False)
     picture = Column(String(100))
-    
+
 
 class Category(Base):
     __tablename__ = 'category'
@@ -36,7 +36,7 @@ class Item(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
-    description = Column(String(250))
+    description = Column(String(500))
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     user_id = Column(Integer, ForeignKey('user.id'))
@@ -54,5 +54,3 @@ class Item(Base):
 engine = create_engine('sqlite:///itemcatalog.db')
 
 Base.metadata.create_all(engine)
-
- 
